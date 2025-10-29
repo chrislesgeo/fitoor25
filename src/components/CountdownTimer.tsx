@@ -24,12 +24,16 @@ const calculateTimeLeft = (targetDate: Date): TimeLeft => {
 };
 
 export const CountdownTimer = () => {
-  // Set target date to 7 days from now (matching the reference image)
+  // Set target date to November 8 (this year if upcoming, otherwise next year) at 00:00 local time
   const [targetDate] = useState(() => {
-    const date = new Date();
-    date.setDate(date.getDate() + 7);
-    date.setHours(23, 48, 15); // Matching the reference time
-    return date;
+    const now = new Date();
+    const currentYear = now.getFullYear();
+    // Month is 0-based: 10 = November
+    let target = new Date(currentYear, 10, 8, 0, 0, 0, 0);
+    if (target.getTime() <= now.getTime()) {
+      target = new Date(currentYear + 1, 10, 8, 0, 0, 0, 0);
+    }
+    return target;
   });
   
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft(targetDate));
