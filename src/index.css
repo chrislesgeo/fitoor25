@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 240 20% 10%;
+    --foreground: 0 0% 100%;
+
+    --card: 240 20% 15%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 240 20% 12%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 328 100% 54%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 280 60% 20%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 20% 25%;
+    --muted-foreground: 240 10% 70%;
+
+    --accent: 180 100% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 20% 25%;
+    --input: 240 20% 20%;
+    --ring: 328 100% 54%;
+
+    --radius: 0.25rem;
+
+    /* Retro festival colors */
+    --retro-pink: 328 100% 54%;
+    --retro-cyan: 180 100% 45%;
+    --retro-purple: 280 60% 30%;
+    --retro-dark: 240 30% 8%;
+    
+    /* Sky gradients for different times */
+    --sky-night-start: 240 40% 10%;
+    --sky-night-end: 280 40% 15%;
+    --sky-dawn-start: 250 50% 35%;
+    --sky-dawn-end: 30 80% 60%;
+    --sky-day-start: 200 80% 50%;
+    --sky-day-end: 210 70% 70%;
+    --sky-dusk-start: 20 80% 50%;
+    --sky-dusk-end: 280 50% 30%;
+
+    /* Effects */
+    --glow-pink: 0 0 20px hsl(328 100% 54% / 0.6);
+    --glow-cyan: 0 0 15px hsl(180 100% 45% / 0.5);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+  }
+}
+
+@layer utilities {
+  .text-glow-pink {
+    text-shadow: var(--glow-pink);
+  }
+  
+  .text-glow-cyan {
+    text-shadow: var(--glow-cyan);
+  }
+
+  .pixel-borders {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+  }
+}
